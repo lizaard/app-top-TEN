@@ -13,13 +13,14 @@ import { Lizard } from './post.model'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  err: string = '';
+
 
   DeacuSperSaMearga1: Lizard[] = [];
-  // DeacuSperSaMearga2: Lizard[] = [];
+
 
   constructor(private http: HttpClient) { }
 
+  err: string = '';
   setValue() {
     this.err = String(this.DeacuSperSaMearga1);
   }
@@ -30,7 +31,6 @@ export class AppComponent implements OnInit {
       .get<Lizard>('https://www.reddit.com/r/soccer/top/.json')
       .pipe(map(postList => {
         const AiciFacUnArrayDinObiect = [];
-
         for (const DreacuStieCeEAsta in postList) {
           if (postList.hasOwnProperty(DreacuStieCeEAsta)) {
             AiciFacUnArrayDinObiect.push(postList);
@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
         HabarNuam.push(HabarNuam2)
 
         this.DeacuSperSaMearga1 = HabarNuam;
-        console.log(HabarNuam.length);
+
 
       });
 

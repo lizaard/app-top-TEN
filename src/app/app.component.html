@@ -1,3 +1,5 @@
+<app-the-content></app-the-content>
+
 <div class="container">
   <div class="row">
     <div class="col-lg-10">
@@ -5,12 +7,7 @@
 
         <ng-container *ngFor="let pots of DeacuSperSaMearga1[10]">
 
-          <div *ngFor="let post of DeacuSperSaMearga1">
-            <h5>{{ post.title }}</h5>
-            <h5 class="card-text">{{ post.ups }}</h5>
-            <h5 class="card-text">{{ post.downs }}</h5>
-            <a [href]="pots" target="_blank" (click)="setValue()">Go somewhere</a>
-          </div>
+          <a [href]="pots" target="_blank" (click)="setValue()">Go somewhere</a>
         </ng-container>
 <!-- <div>
   <div class="input-group mb-12">
