@@ -3,23 +3,21 @@
     <div class="col-lg-10">
       <div class="card">
 
-        <div class="card-body" *ngFor="let pots of DeacuSperSaMearga1[10]">
+        <ng-container *ngFor="let pots of DeacuSperSaMearga1[10]">
+
           <div *ngFor="let post of DeacuSperSaMearga1">
             <h5>{{ post.title }}</h5>
             <h5 class="card-text">{{ post.ups }}</h5>
             <h5 class="card-text">{{ post.downs }}</h5>
-          </div>
-
-          <!-- <div class="card-body" *ngFor="let post of DeacuSperSaMearga1[10]"> -->
             <a [href]="pots" target="_blank" (click)="setValue()">Go somewhere</a>
-          <!-- </div> -->
-        </div>
-<div>
+          </div>
+        </ng-container>
+<!-- <div>
   <div class="input-group mb-12">
     <input type="text" cl="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="err">
   </div>
 
-</div>
+</div> -->
 
 
       </div>
