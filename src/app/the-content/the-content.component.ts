@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Component, Input, OnInit} from '@angular/core';
+
 
 
 @Component({
@@ -8,15 +8,14 @@ import { EventEmitter } from 'events';
   styleUrls: ['./the-content.component.scss']
 })
 export class TheContentComponent implements OnInit {
-  @Input() DeacuSperSaMearga1
-  @Output() ceva = new EventEmitter
+  @Input() postObj: object;
 
   constructor() { }
 
 
 
   ngOnInit(): void {
-    this.ceva.emit(this.DeacuSperSaMearga1)
+
   }
 
 }

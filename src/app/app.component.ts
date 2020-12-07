@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { publishFacade } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Lizard } from './post.model'
 
@@ -15,50 +13,39 @@ import { Lizard } from './post.model'
 export class AppComponent implements OnInit {
 
 
-  DeacuSperSaMearga1: Lizard[] = [];
+  postsArray: Lizard[] = [];
 
 
   constructor(private http: HttpClient) { }
 
-  err: string = '';
-  setValue() {
-    this.err = String(this.DeacuSperSaMearga1);
+  addItem(title: any) {
+    this.postsArray.push(title);
   }
 
   ngOnInit(): void {
-
     this.http
       .get<Lizard>('https://www.reddit.com/r/soccer/top/.json')
       .pipe(map(postList => {
-        const AiciFacUnArrayDinObiect = [];
-        for (const DreacuStieCeEAsta in postList) {
-          if (postList.hasOwnProperty(DreacuStieCeEAsta)) {
-            AiciFacUnArrayDinObiect.push(postList);
-
+        const objTranform = [];
+        for (const ID in postList) {
+          if (postList.hasOwnProperty(ID)) {
+            objTranform.push(postList);
           }
         }
-        return AiciFacUnArrayDinObiect;
+        return objTranform;
       })
       )
       .subscribe(post => {
         let postChild = post[1].data.children;
-
-        const HabarNuam = [];
-        const HabarNuam2 = [];
-
+        const postDetail = [];
         for (let i = 0; i < 10; i++) {
           let postChildDataTwo = postChild[i].data;
-          HabarNuam2.push("https://www.reddit.com" + postChildDataTwo.permalink);
-          HabarNuam.push(postChildDataTwo)
+          postDetail.push(postChildDataTwo)
         }
-
-        HabarNuam.push(HabarNuam2)
-
-        this.DeacuSperSaMearga1 = HabarNuam;
-
+        this.postsArray = postDetail;
+        console.log(postDetail);
 
       });
-
   }
 
 }
